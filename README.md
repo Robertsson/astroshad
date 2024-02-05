@@ -1,8 +1,8 @@
 # Astroshad: Minimal Astro + ui.Shadcn Starter
 
-**Astroshad** combines Astro + Tailwind + ui.shadcn. Quickstart your new Astro site with Skeleton UI. Astroshad is theme with the basic settings for Astro + Skeleton already setup for you.
+**Astroshad** combines Astro + Tailwind + ui.shadcn. Quickstart your new Astro site with ui.shadcn. Astroshad is theme with the basic settings for Astro + ui.shadcn already setup for you.
 
-This theme is not production ready (yet), instead can be seen as a starting point for Astro + Skeleton UI
+This theme is not production ready (yet), instead can be seen as a starting point for Astro + ui.shadcn
 
 ![](./public/images/astroshad.png)
 
