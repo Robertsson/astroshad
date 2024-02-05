@@ -37,5 +37,9 @@
   "devDependencies": {
     "prettier": "^3.2.4",
     "prettier-plugin-astro": "^0.13.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.6.1"
   }
+  
 }
