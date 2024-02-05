@@ -5,15 +5,15 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { SITE } from "@config";
 import Logo from "@components/shared/Logo.tsx";
-import type { navItem } from "@/types";
+import type { NavItem } from "@/types";
 
 
 interface SheetMobileProps {
-  mainNavItems?: navItem[];
-  sidebarNavItems?: navItem[];
+  mainNavItems?: NavItem[];
+  sidebarNavItems?: NavItem[];
 }
 interface NavItemProps {
-  item: navItem;
+  item: NavItem;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -90,7 +90,7 @@ export function DrawerMobileNav({
                     <div key={index} className="flex flex-col space-y-3 pt-6">
                       <h4 className="font-medium">{item.title}</h4>
                       {activeItems.map((subItem, idx) => (
-                        <React.Fragment key={subItem.href + idx}>
+                        <React.Fragment key={subItem.href? + idx:""}>
                           {subItem.href ? (
                             <a
                               href={subItem.href}
