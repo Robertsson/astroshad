@@ -1,0 +1,50 @@
+---
+import Logo from "./Logo.tsx";
+import { SITE } from "@config";
+
+---
+<div class="page-footer" transition:persist>
+    <div class="w-full max-w-7xl mx-auto p-4 py-16 md:py-24 space-y-10">
+        <section class="flex flex-col md:flex-row justify-between items-center md:items-start space-y-5 md:space-y-0">
+            <div class="grid grid-cols-1 gap-2 place-content-center place-items-center md:place-items-start">
+				<Logo/>
+				<p class="!text-sm opacity-80">Astro + Shadcn</p>
+                <a class="anchor" href=`${SITE.githubUrl}/LICENSE` target="_blank" rel="noreferrer">
+					MIT License
+				</a>
+			</div>
+            <div class="hidden md:grid grid-cols-3 gap-8">
+				<div class="space-y-6">
+					<h6 class="h6">Astro</h6>
+					<ul class="space-y-3">
+						<li><a class="anchor" href="https://astro.build">Astro Homepage</a></li>
+						<li><a class="anchor" href="https://docs.astro.build/en/getting-started/">Astro Documentation</a></li>
+					</ul>
+				</div>
+				<div class="space-y-6">
+					<h6 class="h6">Shadcn UI</h6>
+					<ul class="space-y-3">
+						<li><a class="anchor" href="https://ui.shadcn.com/">ui.shadcn.com</a></li>
+						<li><a class="anchor" href="https://ui.shadcn.com/docs">ui.shadcn.com documenation</a></li>
+					</ul>
+				</div>
+				<div class="space-y-6">
+					<h6 class="h6">Astroshad</h6>
+					<ul class="space-y-3">
+						<li>
+							<a class="anchor" href=`${SITE.githubUrl}` target="_blank" rel="noreferrer">Astroshad on Github</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+        </section>
+        <section>
+			<div class="flex gap-6">
+				<a class="opacity-75 hover:opacity-100" target="_blank" rel="noreferrer">
+					<i class="fa-brands text-xl {sl.icon}" />
+				</a>
+			</div>
+		</section>
+    </div>
+
+</div>

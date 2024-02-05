@@ -1,0 +1,33 @@
+---
+import Logo from "../../components/shared/Logo.tsx";
+import { SITE } from "@config";
+import { DrawerMobileNav} from "@components/shared/Drawer/Drawer.tsx"
+import Nav from "@shared/Nav.astro"
+---
+
+<div transition:persist class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+	<div class="container flex h-14 max-w-screen-2xl items-center">
+		<a href="/" rel="prefetch" class="mr-6 flex items-center space-x-2" title="Go to Homepage">
+			<Logo />
+		</a>
+		<h1 class="hidden font-bold sm:inline-block mr-6"><a href="/">{ SITE.title }</a></h1>
+		<section class="mr-4 hidden md:flex">
+			<nav class="flex items-center gap-6 text-sm">
+				<Nav
+					items={[...SITE.nav.main]}
+				/>
+			</nav>
+		</section>     
+		<section class="hidden md:flex flex-1 items-center justify-between space-x-2 md:justify-end">
+			<a class="btn-icon hover:variant-soft-primary" href=`${SITE.githubUrl}` target="_blank" rel="noreferrer">
+				<i class="fa-brands fa-github text-lg" />
+			</a>
+		</section>
+		<section class="flex md:hidden flex-1 items-center justify-end space-x-2">
+			<DrawerMobileNav 
+				mainNavItems={[...SITE.nav.main]},
+				sidebarNavItems={[...SITE.nav.sub]}
+			client:load>
+		</section>
+	</div>
+</div>

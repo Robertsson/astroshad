@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/PageLayout.astro';
+import { getCollection } from "astro:content";
+
+const blogEntries = await getCollection("posts", ({ data}) => {
+    return !data.draft
+});
+---
+
+<Layout title="Blogg">
+    <h1 class="h1 inline-block" >Blog</h1>
+    {blogEntries.map((blogPostEntry) =>(
+            <a class="block hover:card hover:variant-soft p-4 rounded-container-token" href={`/posts/${blogPostEntry.slug}`} >
+                <article class="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-4 lg:gap-8">
+                    <img class="bg-black/50 w-full lg:max-w-sm aspect-video rounded-container-token shadow-xl bg-cover bg-center" src="http://via.placeholder.com/640x360" alt="thumbnail">
+                    <div class="space-y-4">
+                        <time class="block">{blogPostEntry.data.publishDate}</time>
+                        <h2 class="h2">{blogPostEntry.data.title}</h2> 
+                        <p>{blogPostEntry.data.shortDescription}</p> 
+                        <button class="btn variant-ghost-surface">Read Article →</button>
+                    </div>
+                </article>
+            </a>
+        )
+
+        )}
+
+</Layout>

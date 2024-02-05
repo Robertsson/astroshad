@@ -1,0 +1,31 @@
+---
+import Logo from "./shared/Logo.tsx";
+import { SITE } from "@config";
+
+const { title, intro, description, githubUrl } = SITE;
+---
+
+<header id="hero" class="m-auto w-full py-24 sm:py-32 lg:pb-40 max-w-7xl px-6 lg:px-8">
+  <div class="section-container">
+    <div class="grid grid-cols-1 gap-4 md:gap-10 items-center">
+      <div
+        class="flex flex-col items-center text-center space-y-8"
+      >
+       <Logo height={200} width={190}/>
+        <h1 class="h1 inline-block !text-5xl md:!text-6xl max-w-[600px]">
+            {title}
+        </h1>
+        <p class="h2">{intro.short}</p>
+        <p class="lead max-w-[475px]" >
+          {description.medium}
+        </p>
+        <div class="flex gap-4">
+          <a href={githubUrl} class="btn variant-filled-primary"
+            ><span>{title} on Github</span>
+            <i class="fa-solid fa-arrow-right-long"></i></a
+          >
+        </div>
+      </div>
+      
+  </div>
+</header>

@@ -1,0 +1,17 @@
+---
+
+import type { NavItem } from '../../types.ts';
+type Props = {
+    items: NavItem[];
+}
+
+const { items } = Astro.props;
+
+---
+{
+    items?.length ? (
+        items?.map((item) => (
+            <a class={`transition-colors hover:text-foreground/80  ${Astro.url.pathname === item.href ? 'text-foreground/80':'text-foreground/60'}`} href={item.href}>{item.title}</a>
+        ))
+    ): null
+}

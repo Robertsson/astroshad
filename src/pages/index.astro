@@ -1,0 +1,124 @@
+---
+import { SITE } from '@config';
+import Hero from '../components/Hero.astro';
+import Layout from '../layouts/MainLayout.astro';
+import { Button } from '@components/ui/button';
+import type { ColumnDef } from "@tanstack/react-table";
+import { Table, TableHeader,TableRow, TableHead, TableBody,TableCell} from "@components/ui/table";
+type Feature = {
+    name: string;
+    status: boolean;
+}
+
+export const features: Feature[] = [
+    {
+        name: "Astro 4.3.1",
+        status: true
+    },
+    {
+        name: "Config (To quickly modify site settings.)",
+        status: true
+    },
+    {
+        name: "Sitemap",
+        status: true
+    },
+    {
+        name: "ViewTransitions",
+        status: true
+    },
+    {
+        name: "Internationalization (i18n)",
+        status: false
+    },
+    {
+        name: "React",
+        status: true
+    },
+    {
+        name: "Shadcn/ui",
+        status: true
+    },
+    {
+        name: "Tailwind",
+        status: true
+    },
+    {
+        name: "SEO",
+        status: true
+    },
+    {
+        name: "Blog",
+        status: false
+    },
+    {
+        name: "Cookie Concent",
+        status: true
+    }
+]
+export const columns: ColumnDef<Feature>[] = [
+    {
+        header: "Feature",
+        accessorKey: "name"
+    },
+    {
+        header: "Status",
+        accessorKey: "status",
+    }
+]
+
+---
+<Layout title={SITE.title+" - "+SITE.intro.short} description={SITE.description.medium} titleTemplate="">
+    <Hero></Hero>
+  
+  
+    </div>
+    <div class="w-full max-w-7xl mx-auto p-4 py-16 md:py-24 space-y-10">
+        <div class="md:grid grid-cols-3 gap-8 ">
+            <div class="mb-8 text-center">
+                <i class="fa-solid fa-rocket text-8xl mb-4"></i>
+                <h2 class="h2 mb-4">Astro</h2>
+                <p class="mb-4">Astro a great web framework for content driven websites. Create the world's fastest website, client-side web apps, dynamic API endpoints with Astro.</p>
+                
+                <Button>
+                    <a href="https://astro.build/">Astro.build »</a>
+                </Button>
+            </div>
+            <div class="mb-8 text-center">
+                <i class="fa-solid fa-bars-staggered text-8xl mb-4"></i>
+                <h2 class="h2 mb-4">Shadcn/ui</h2>
+                <p class="mb-4">Shadcn/ui is a collection of stunningly crafted components ready for seamless integration into your applications. User-friendly. Tailorable. Open Source.</p>
+                <Button>
+                    <a href="https://ui.shadcn.com/">ui.shadcn.com »</a>
+                </Button>
+            </div>
+            <div class="mb-8 text-center">
+                <i class="fa-solid fa-crown text-8xl mb-4"></i>
+                <h2 class="h2 mb-4">{SITE.title}</h2>
+                <p class="mb-4">Combine Astro + React + Shadcn/ui + Tailwind</p>
+            </div>
+        </div>
+        <section class="py-24">
+
+            <h2 class="h2">Feature List</h2>
+            <Table>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead>Feature</TableHead>
+                        <TableHead>Status</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {features.map((feature, index) => (
+                        <TableRow key={index}>
+                            <TableCell>{feature.name}</TableCell>
+                            <TableCell>
+                                {feature.status ? <i class="fa-solid fa-circle-check text-lg text-success-500"></i> : <i class="fa-solid fa-circle-minus text-lg text-neutral-500"></i>}
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </section>
+	</div>
+</Layot>

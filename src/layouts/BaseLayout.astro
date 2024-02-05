@@ -1,0 +1,68 @@
+---
+import '../assets/app.css';
+
+// Font Awesome
+import '@fortawesome/fontawesome-free/css/fontawesome.css';
+import '@fortawesome/fontawesome-free/css/brands.css';
+import '@fortawesome/fontawesome-free/css/solid.css';
+
+interface Props {
+	title: string;
+	description: string;
+	titleTemplate: string;
+}
+
+const { title,description,titleTemplate } = Astro.props;
+import Header from '@components/shared/Header.astro';
+import Footer from '@components/shared/Footer.astro';
+import {ViewTransitions} from 'astro:transitions';
+import { SEO } from "astro-seo";
+import { SITE } from '@config';
+import CookieConsent from '@/components/shared/CookieConsent.astro';
+
+---
+
+<!doctype html>
+<html lang={SITE.lang} class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+
+		<SEO
+			title={title} {description}
+			titleTemplate={titleTemplate}
+			description={description}
+			openGraph={{
+				basic: {
+				title: "Title",
+				type: "A type.",
+				image: "-",
+				}
+			}}
+			twitter={{
+				creator: "@username"
+			}}
+			extend={{
+				link: [{ rel: "icon", href: "/favicon.ico" }],
+				meta: [
+				{
+					name: "twitter:image",
+					content: "-",
+				},
+				{ name: "twitter:title", content: "" },
+				{ name: "twitter:description", content: "" },
+				],
+			}}
+    	/>
+		<ViewTransitions/>
+	</head>
+	<body  class="min-h-screen bg-background font-sans antialiased ">
+		<Header/>
+		<slot />
+		<Footer/>
+        <CookieConsent />
+	</body>
+</html>
