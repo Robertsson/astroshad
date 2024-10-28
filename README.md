@@ -16,11 +16,11 @@ Repository was created as a starting point for my own projects where i'm trying 
 Contribution is welcome, feel free to open an issue and fork. Waiting for your pull request.
 
 ## What's added so far
-* Astro 4.3
+* Astro 5.0 Beta
   * Sitemap **Add-on**
   * ViewTransitions
   * Astro SEO
-* React 18.2.0
+* React 18.3.1
   * **UI Shadcn 
 * Tailwind
 * Simple Blog
